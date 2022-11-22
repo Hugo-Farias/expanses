@@ -1,0 +1,26 @@
+.filter-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.filter-label {
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: #ccc;
+}
+
+#year,
+#year option {
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 30px;
+}
+
+option {
+  background-color: transparent;
+  backdrop-filter: blur(30px);
+}
