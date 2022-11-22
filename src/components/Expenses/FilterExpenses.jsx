@@ -7,12 +7,20 @@ const FilterExpenses = function (prp) {
     prp.onFilter(e.target.value);
   };
 
+  // Add Dates to filter list if not
   prp.prop.items
     .map((v) => v.date.getFullYear())
     .forEach((i) => {
       const val = i.toString();
       if (!datesList.includes(val)) datesList.push(val);
     });
+
+  // Order Dates list Aphabetically
+  datesList.sort(function (a, b) {
+    return a === b ? 0 : a < b ? -1 : 1;
+  });
+
+  console.log(datesList);
 
   return (
     <div className="filter-div">

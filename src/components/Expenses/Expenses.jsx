@@ -1,7 +1,7 @@
 import "./Expenses.css";
 import Card from "../UI/Card";
-import ExpenseItem from "./ExpenseItem";
 import FilterExpenses from "./FilterExpenses.jsx";
+import ExpensesList from "./ExpensesList.jsx";
 import { useState } from "react";
 
 const Expanses = function (prp) {
@@ -16,14 +16,7 @@ const Expanses = function (prp) {
   return (
     <Card className="expenses">
       <FilterExpenses prop={prp} onFilter={filterYearHandler} />
-      {filterList.map((v) => (
-        <ExpenseItem
-          key={v.id}
-          date={v.date}
-          title={v.title}
-          ammount={v.amount}
-        />
-      ))}
+      <ExpensesList items={filterList} />
     </Card>
   );
 };

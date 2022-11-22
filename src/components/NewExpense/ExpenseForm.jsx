@@ -34,10 +34,14 @@ const ExpenseForm = function (prp) {
     setInputDate("");
 
     prp.onSave(expenseData);
+    prp.onCancel(false);
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form
+      onSubmit={submitHandler}
+      onKeyDown={(e) => e.key === "Escape" && prp.onCancel(false)}
+    >
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
@@ -47,6 +51,7 @@ const ExpenseForm = function (prp) {
             value={inputTitle}
             onChange={titleChangeHandler}
             required
+            autoFocus
           />
         </div>
         <div className="new-expense__control">
@@ -75,6 +80,9 @@ const ExpenseForm = function (prp) {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={prp.onCancel}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
