@@ -20,19 +20,19 @@ const FilterExpenses = function (prp) {
     return a === b ? 0 : a < b ? -1 : 1;
   });
 
-  console.log(datesList);
-
   return (
-    <div className="filter-div">
-      <label className="filter-label">Filter by Year</label>
-      <select name="Year" id="year" onChange={selectFilterHandler}>
-        <option value="">Any</option>
-        {datesList.map((v, i) => (
-          <option key={i} value={v}>
-            {v}
-          </option>
-        ))}
-      </select>
+    <div className="expenses-filter">
+      <div className="expenses-filter__control">
+        <label>Filter by Year</label>
+        <select name="Year" id="year" onChange={selectFilterHandler}>
+          <option value="">Any</option>
+          {datesList.map((v, i) => (
+            <option key={i} value={v}>
+              {v}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };
