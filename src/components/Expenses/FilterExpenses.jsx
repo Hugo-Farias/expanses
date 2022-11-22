@@ -18,7 +18,7 @@ const FilterExpenses = function (prp) {
     <div className="filter-div">
       <label className="filter-label">Filter by Year</label>
       <select name="Year" id="year" onChange={selectFilterHandler}>
-        <option value="any">Any</option>
+        <option value="">Any</option>
         {datesList.map((v, i) => (
           <option key={i} value={v}>
             {v}

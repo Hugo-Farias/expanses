@@ -5,22 +5,18 @@ import FilterExpenses from "./FilterExpenses.jsx";
 import { useState } from "react";
 
 const Expanses = function (prp) {
-  const [filteredList, setFilteredList] = useState(prp.items);
+  const [filterYear, setFilterYear] = useState("");
 
-  // const testList = filteredList
+  const filterYearHandler = (value) => setFilterYear(value);
 
-  const filteredYearHandler = function (value) {
-    if (value === "any") return setFilteredList(prp.items);
-
-    setFilteredList(
-      prp.items.filter((i) => i.date.getFullYear().toString() === value)
-    );
-  };
+  const filterList = !filterYear
+    ? prp.items
+    : prp.items.filter((v) => v.date.getFullYear().toString() === filterYear);
 
   return (
     <Card className="expenses">
-      <FilterExpenses prop={prp} onFilter={filteredYearHandler} />
-      {filteredList.map((v) => (
+      <FilterExpenses prop={prp} onFilter={filterYearHandler} />
+      {filterList.map((v) => (
         <ExpenseItem
           key={v.id}
           date={v.date}
