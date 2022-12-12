@@ -7,6 +7,7 @@ import ExpensesChart from "./ExpensesChart.jsx";
 
 const Expanses = function (prp) {
   const [filterYear, setFilterYear] = useState("");
+  const noItems = prp.items.length;
 
   const filterYearHandler = (value) => setFilterYear(value);
 
@@ -18,7 +19,13 @@ const Expanses = function (prp) {
     <Card className="expenses">
       <FilterExpenses prop={prp} onFilter={filterYearHandler} />
       <ExpensesChart data={filterList} />
-      <ExpensesList items={filterList} />
+      {!noItems ? (
+        <div className="expenses-list-fallback">
+          <p>No items</p>
+        </div>
+      ) : (
+        <ExpensesList items={filterList} />
+      )}
     </Card>
   );
 };

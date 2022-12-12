@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap");
+
 .expenses {
   padding: 1rem;
   background-color: rgb(31, 31, 31);
@@ -5,4 +7,11 @@
   width: 50rem;
   max-width: 95%;
   list-style: none;
+}
+
+.expenses-list-fallback {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  color: #ececec;
 }
